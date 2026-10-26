@@ -1404,14 +1404,13 @@ function applyPreset(names){
   var P=[
     {n:['זיתים ירוקים'],i:'זיתים ירוקים',t:'קלאסית',s:'זיתים'},
     {n:['בצל'],i:'בצל',t:'קלאסית',s:'בצל'},
-    {n:['פטריות'],i:'פטריות',t:'קלאסית',s:'פטריות'},
-    {n:['פלפל חריף','בצל','עגבנייה'],i:'פלפל חריף',t:'קלאסית',s:'חריף'}
+    {n:['פטריות'],i:'פטריות',t:'קלאסית',s:'פטריות'}
   ];
   var row=document.getElementById('presetsRow');
   if(!row)return;
   P.forEach(function(p){
     var b=document.createElement('button');b.type='button';
-    b.innerHTML=toppingIcon(p.i)+'<span class="pt"><span>'+p.t+'</span>'+(p.s?'<small>'+p.s+'</small>':'')+'</span>';
+    b.innerHTML=[].concat(p.i).map(toppingIcon).join('')+'<span class="pt"><span>'+p.t+'</span>'+(p.s?'<small>'+p.s+'</small>':'')+'</span>';
     b.onclick=function(){applyPreset(p.n);};
     row.appendChild(b);
   });
